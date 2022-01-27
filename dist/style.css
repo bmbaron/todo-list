@@ -1,0 +1,165 @@
+
+
+
+.main-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.main-container .image {
+    width: 40%;
+    height: 30%;
+    margin: auto;
+    margin-top: 5%;
+    background-image: url('../../src/images/image.png');
+    background-size: 100%;
+    background-repeat:no-repeat;
+}
+
+
+.main-container .searchbox{
+    width:300px;
+    line-height: 50px !important;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    min-width: 250px;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    padding-left: 20px;
+    outline: none !important;
+    font-size: 1.4rem;
+}
+
+.main-container .searchbox:hover {
+    box-shadow: 1px 1px lightgrey;
+}
+
+
+.main-container .button-container {
+    margin-top: 2vh;
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+}
+.main-container .button-container .button {
+    font-size: 1rem;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    background: rgb(104,172,231);
+    width: 7rem;
+    height: 3rem;
+}
+
+.main-container .button-container .button:hover {
+
+    border: 1px solid lightgrey;
+}
+
+
+
+@media (max-width: 500px) {
+
+    .main-container {
+        width: 400px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-container .logo {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-container .searchbox {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+.main-container .project-container {
+    visibility: hidden;
+    margin-top: -250px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.main-container .project-container .control-panel {
+    width: 25%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction:column;
+    font-size: 2.5rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.main-container .project-container .control-panel p {
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.main-container .project-container .control-panel .button {
+    color: white;
+    font-size: 2rem;
+    background: rgb(104,172,231);
+    border-radius: 30px;
+    padding: 20px;
+    margin: 10px;
+    margin-top: 0px;
+    width: 6rem;
+    text-decoration:none;
+}
+
+.main-container .project-container .control-panel #add-button {
+    font-size: 4rem;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.main-container .project-container .control-panel #finished-button {
+    background: rgb(104,172,231);
+}
+
+.main-container .project-container .control-panel #important-button {
+    font-size: 2rem;
+    background: rgb(104,172,231);
+}
+
+.main-container .project-container .project-view {
+    height: 80%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+
+.main-container .project-container .project-view .project {
+    padding: 5px;
+    margin:2px;
+    background-color: white;
+    width: 10%;
+
+
+}
+
+
+
