@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Webpack App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script defer="defer" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="main-container" id="main-container">
+        <div class="image"></div>
+        <form class="text-center" id="form">
+            <input type="text" autocomplete="off" class="searchbox" id="searchbox" placeholder="What are you working on?">
+            </input>
+            <div class="button-container"> 
+                <button type='button' class="button" id="project-button"> add project </button>
+            </div>
+        </form>
+        <div class="project-container" id="project-container">
+            
+            <div class="control-panel" id="control-panel">
+                <p id="panel-name">projects</p>
+                <div class="button" id="add-button"> + </div>
+                <div class="button" id="finished-button">finished</div>
+                <div class="button" id="important-button">important</div>
+            </div>
+            <div class="project-view" id="project-view">
+            </div>
+        </div>       
+    </div>
+</body>
+
+</html>
