@@ -13,21 +13,30 @@
         layout.homePage();
     }); */
 
-import {manager} from './components/projectManager.js'
+import {pManager} from './components/projectManager.js'
+import {tManager} from './components/taskManager.js'
 
 
 var form = document.getElementById("form");
 var inputBox= document.getElementById("searchbox");
 var projects = document.getElementById("project-container");
+var tasks = document.getElementById("task-container");
 var projectButton = document.getElementById("project-button");
 var addButton = document.getElementById("add-button");
 
 projectButton.onclick = function(){
     var input = inputBox.value;
-    manager.addProject(input);
+    pManager.addProject(input);
     inputBox.value = null;
     form.style.visibility = 'hidden';
     projects.style.visibility = 'visible';
+};
+
+taskButton.onclick = function(){
+    tManager.createTask();
+    form.style.visibility = 'hidden';
+    projects.style.visibility = 'visible';
+    tasks.style.visibility = 'visible';
 };
 
 inputBox.addEventListener("keydown", function(event) {
@@ -43,6 +52,7 @@ inputBox.addEventListener("keydown", function(event) {
 addButton.onclick = function(){
     form.style.visibility = 'visible';
     projects.style.visibility = 'hidden';
+    inputBox.focus();
 };
 
 

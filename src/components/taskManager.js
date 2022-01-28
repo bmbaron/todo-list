@@ -1,6 +1,6 @@
 
 
-const pManager = (() => {
+const tManager = (() => {
 
     let projects = document.getElementById('project-view');
     let projectArray = [];
@@ -39,5 +39,5 @@ const pManager = (() => {
   
   
   export {
-    pManager
+    tManager
   }
