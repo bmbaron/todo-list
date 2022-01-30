@@ -9,7 +9,6 @@
     text-align: center;
     justify-content: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    overflow: hidden;
 }
 
 .main-container .image {
@@ -61,6 +60,7 @@
     background: rgb(104,172,231);
     width: 7rem;
     height: 3rem;
+    cursor: pointer;
 }
 
 .main-container .button-container .button:hover {
@@ -100,39 +100,35 @@
 }
 
 .main-container .project-container .control-panel {
+    display: table-cell;
     width: 25%;
-    height: 80%;
-    display: flex;
+    height: 70%;
     align-items: center; 
     flex-direction:column;
-    font-size: 2.5rem;
+    font-size:2rem;
     font-style: italic;
     margin: 0;
 }
 
 .main-container .project-container .control-panel p {
-    margin-top: 1.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
 .main-container .project-container .control-panel .button {
     color: white;
-    font-size: 2rem;
     background: rgb(104,172,231);
     border-radius: 30px;
-    padding: 20px;
     margin: 10px;
-    margin-top: 0px;
-    width: 6rem;
+    width: 17vw;
+    height: 4rem;
     text-decoration:none;
+    line-height: 4rem;
+    cursor: pointer;
 }
 
 .main-container .project-container .control-panel #add-button {
-    font-size: 4rem;
-    padding: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-
+    font-size: 2rem;
 }
 
 .main-container .project-container .control-panel #finished-button {
@@ -140,13 +136,12 @@
 }
 
 .main-container .project-container .control-panel #important-button {
-    font-size: 2rem;
     background: rgb(104,172,231);
 }
 
 .main-container .project-container .project-view {
-    height: 80%;
-    width: 70%;
+    width: 65%;
+    height: 50%;
     display: flex;
 }
 
@@ -154,9 +149,64 @@
     padding: 5px;
     margin:2px;
     background-color: lightgrey;
-    font-size: 1.5rem;
-    flex-grow: 1;
+    font-size:2vw;
+    width: 20vw;
+    height: 100%;
 }
 
 
+.main-container .project-container .project-view .project .task {
+    background: rgb(104,172,231);
+    width: 80%;
+    height: 5rem;
+    margin: auto;
+    margin-top: 1rem;
+    font-size:2vw;
+}
 
+.main-container .project-container .project-view .task-button {
+    color: white;
+    background: rgb(104,172,231);
+    border-radius: 30px;
+    margin: 10px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+}
+.main-container .project-container .project-view .delete-button {
+    color: white;
+    background: coral;
+    border-radius: 30px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin-top: 100%;
+    cursor: pointer;
+}
+
+.form2 {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    height: 0;
+    width: 50%;
+    margin: auto;
+    border: 3px solid lightyellow;
+    background-color: lightskyblue;
+    border-radius: 3rem;
+}
+.task-form {
+    text-indent: 15px;
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 250px;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    outline: none !important;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.7rem;
+}

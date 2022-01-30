@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Webpack App</title>
+    <title>To-do List</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script defer="defer" src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -21,13 +21,18 @@
             </div>
         </form>
 
-<!--         <form class="text-center" id="form2">
-            <input type="text" autocomplete="off" class="searchbox" id="searchbox" placeholder="What are you working on?">
-            </input>
+         <form class="text-center form2" id="form2">
+            <input type="text" autocomplete="off" class="task-form" id="task-name" placeholder="task name"></input>
+            <input type="text" autocomplete="off" class="task-form" id="task-description" placeholder="description"></input>
+            <input type="date" autocomplete="off" class="task-form" id="task-due" placeholder="?"></input>
+            <label for="task-due" style="margin-top: -15px; font-size: 1.5rem;">deadline</label>
+            <input type="checkbox" style="zoom:2;" autocomplete="off" class="task-form" id="task-priority" placeholder="?"></input>
+            <label for="task-priority" style="margin-top: -45px; font-size: 1.5rem">high-priority</label>
+
             <div class="button-container"> 
-                <button type='button' class="button" id="project-button"> add project </button>
+                <button type='button' class="button" id="task-button2" style="margin-top: 2rem;"> add task </button>
             </div>
-        </form> -->
+        </form>
 
         <div class="project-container" id="project-container">
             <div class="control-panel" id="control-panel">

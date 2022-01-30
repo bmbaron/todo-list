@@ -4,12 +4,8 @@ const tManager = (() => {
 
   let taskArray = [];
 
-  const createTask = (task, project) => {
+  const createTask = (project) => {
 
-
-    taskArray.push(task);
-
-    console.log("tasks: " + taskArray);
 
     let newTask = document.createElement('div');
     newTask.innerHTML = "task";
