@@ -1,4 +1,5 @@
 
+import {tManager} from './components/taskManager.js'
 
 const pManager = (() => {
 
@@ -21,6 +22,8 @@ const pManager = (() => {
       console.log(newProject);
 
       projects.appendChild(newProject);
+
+      tManager.createTask(10, newProject);
 
     };
 

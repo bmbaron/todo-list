@@ -12,13 +12,23 @@
 <body>
     <div class="main-container" id="main-container">
         <div class="image"></div>
-        <form class="text-center" id="form">
+
+        <form class="text-center" id="form1">
             <input type="text" autocomplete="off" class="searchbox" id="searchbox" placeholder="What are you working on?">
             </input>
             <div class="button-container"> 
                 <button type='button' class="button" id="project-button"> add project </button>
             </div>
         </form>
+
+<!--         <form class="text-center" id="form2">
+            <input type="text" autocomplete="off" class="searchbox" id="searchbox" placeholder="What are you working on?">
+            </input>
+            <div class="button-container"> 
+                <button type='button' class="button" id="project-button"> add project </button>
+            </div>
+        </form> -->
+
         <div class="project-container" id="project-container">
             <div class="control-panel" id="control-panel">
                 <p id="panel-name">projects</p>
@@ -26,7 +36,9 @@
                 <div class="button" id="finished-button">finished</div>
                 <div class="button" id="important-button">important</div>
             </div>
-            <div class="project-view" id="project-view"></div>
+            <div class="project-view" id="project-view">
+                <div class="button" id="task-button"></div>
+            </div>
         </div>       
     </div>
 </body>

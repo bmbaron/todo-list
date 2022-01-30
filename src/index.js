@@ -23,18 +23,20 @@ var projects = document.getElementById("project-container");
 var tasks = document.getElementById("task-container");
 var projectButton = document.getElementById("project-button");
 var addButton = document.getElementById("add-button");
+var taskButton = document.getElementById("task-button");
+
 
 projectButton.onclick = function(){
     var input = inputBox.value;
     pManager.addProject(input);
     inputBox.value = null;
-    form.style.visibility = 'hidden';
+    form1.style.visibility = 'hidden';
     projects.style.visibility = 'visible';
 };
 
 taskButton.onclick = function(){
     tManager.createTask();
-    form.style.visibility = 'hidden';
+    form1.style.visibility = 'hidden';
     projects.style.visibility = 'visible';
     tasks.style.visibility = 'visible';
 };
@@ -50,8 +52,9 @@ inputBox.addEventListener("keydown", function(event) {
   });
 
 addButton.onclick = function(){
-    form.style.visibility = 'visible';
+    form1.style.visibility = 'visible';
     projects.style.visibility = 'hidden';
+    inputBox.placeholder = 'add a project';
     inputBox.focus();
 };
 

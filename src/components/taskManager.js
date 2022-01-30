@@ -2,37 +2,28 @@
 
 const tManager = (() => {
 
-    let projects = document.getElementById('project-view');
-    let projectArray = [];
+  let taskArray = [];
 
-    //const timer = ms => new Promise(res => setTimeout(res, ms));
+  const createTask = (task, project) => {
 
-    const addProject = (project) => {
-      if (project == '') {
-        project = '[unnamed project]';
-      }
 
-      projectArray.push(project);
-      console.log("Projects: " + projectArray);
+    taskArray.push(task);
 
-      let newProject = document.createElement('div');
-      newProject.innerHTML = project;
-      newProject.className = "project";
-      console.log(newProject);
+    console.log("tasks: " + taskArray);
 
-      projects.appendChild(newProject);
+    let newTask = document.createElement('div');
+    newTask.innerHTML = "task";
+    newTask.className = "task";
+    console.log(newTask);
 
-    };
+    project.appendChild(newTask);
 
-  
 
-    //const chooseQuestion = async () => {
+  };
 
-    
+
     return {
-      addProject
-      //toggleAnswered,
-      //questionBoxes,
+      createTask
 
     };
 })();
