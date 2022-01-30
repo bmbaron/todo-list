@@ -18,15 +18,12 @@ import {tManager} from './components/taskManager.js'
 
 
 var form1 = document.getElementById("form1");
-var form2 = document.getElementById("form2");
 var inputBox= document.getElementById("searchbox");
-var taskName = document.getElementById("task-name");
 var projects = document.getElementById("project-container");
 var tasks = document.getElementById("task-container");
 var projectButton = document.getElementById("project-button");
 var addButton = document.getElementById("add-button");
 var taskButton = document.getElementById("task-button");
-var taskButton2 = document.getElementById("task-button2");
 
 
 
@@ -62,11 +59,6 @@ addButton.onclick = function(){
     inputBox.focus();
 };
 
-taskButton2.onclick = function(){
-    form2.style.display = 'block';
-    projects.style.visibility = 'hidden';
-    taskName.focus();
-};
 
       
     
