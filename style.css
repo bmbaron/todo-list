@@ -9,13 +9,15 @@
     text-align: center;
     justify-content: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: hidden;
 }
 
 .main-container .image {
-    width: 40%;
-    height: 30%;
-    margin: auto;
-    margin-top: 10%;
+    height: 40%;
+    width: auto;
+    margin: -5px;
+    padding: 0;
+    margin-bottom: 0;
     background-image: url('../../src/images/image.png');
     background-size: 100%;
     background-repeat:no-repeat;
@@ -28,7 +30,7 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0%;
+    margin-top: 4rem;
     min-width: 250px;
     border: 1px solid #dfe1e5;
     box-shadow: none;
@@ -109,8 +111,8 @@
 }
 
 .main-container .project-container .control-panel p {
-    margin-top: 1rem;
-    margin-bottom: 30px;
+    margin-top: 1.5rem;
+    margin-bottom: 10px;
 }
 
 .main-container .project-container .control-panel .button {
