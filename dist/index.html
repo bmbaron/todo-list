@@ -26,9 +26,10 @@
             <input type="text" autocomplete="off" class="task-form" id="task-description" placeholder="description"></input>
             <input type="date" autocomplete="off" class="task-form" id="task-deadline" placeholder="?"></input>
             <label for="task-due" style="margin-top: -15px; font-size: 1.5rem;">deadline</label>
-            <input type="checkbox" style="zoom:2;" autocomplete="off" class="task-form" id="task-priority" placeholder="?"></input>
-            <label for="task-priority" style="margin-top: -45px; font-size: 1.5rem">high-priority</label>
-
+            <select name="priority" id="priority">
+                <option value="normal" class="task-form">normal priority</option>
+                <option value="IMPORTANT" class="task-form">high priority</option>
+            </select>
             <div class="button-container"> 
                 <button type='button' class="button" id="submit-task-button" style="margin-top: 2rem;"> add task </button>
             </div>
@@ -42,7 +43,7 @@
                 <div class="button" id="important-button">important</div>
             </div>
             <div class="project-view" id="project-view">
-                <div class="button" id="task-button"></div>
+                <div class="task-button" id="task-button"></div>
             </div>
         </div>       
     </div>

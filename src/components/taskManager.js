@@ -10,10 +10,10 @@ const tManager = (() => {
   let taskName = document.getElementById("task-name");
   let taskDescription = document.getElementById("task-description");
   let deadline = document.getElementById("task-deadline");
-  let priority = document.getElementById("task-priority");
+  let priority = document.getElementById("priority");
 
 
-  const addCreateTaskButton = (project) => {
+/*   const addCreateTaskButton = (project) => {
 
     let createTaskButton = document.createElement('div');
     createTaskButton.innerHTML = "create task";
@@ -30,36 +30,31 @@ const tManager = (() => {
       submitTask(project);
     };
 
-  };
+  }; */
 
-  const submitTask = (project) => {
+/*   const submitTask = (project) => {
 
     let submitTaskButton = document.getElementById("submit-task-button");
 
     submitTaskButton.onclick = function(){
-      taskObject[counter] = {"name": taskName.value, "description": taskDescription.value, "deadline": deadline.value, "priority": priority.checked};
-      console.log(taskObject[counter]);
-
-      pManager.logTask(taskName.value, taskDescription.value, deadline, priority.checked, project);
+      pManager.logTask(taskName.value, taskDescription.value, deadline.value, priority.value, project);
 
       taskName.value = "";
       taskDescription.value = "";
-      deadline.value = "";
-      priority.checked = false;
 
       form2.style.height = "0";
       form2.style.visibility = "hidden";
       form2.style.marginTop = "0";
       projectContainer.style.visibility = 'visible';
-    };
+    }; */
 
 
-  };
+  
 
 
     return {
-      addCreateTaskButton,
-      submitTask
+/*       addCreateTaskButton, 
+      submitTask */
 
     };
 })();
