@@ -23,7 +23,6 @@
     var tasks = document.getElementById("task-container");
     var projectButton = document.getElementById("project-button");
     var addButton = document.getElementById("add-button");
-    var taskButton = document.getElementById("task-button");
     
     
     
@@ -35,12 +34,6 @@
         projects.style.visibility = 'visible';
     };
     
-    taskButton.onclick = function(){
-        tManager.createTask();
-        form1.style.visibility = 'hidden';
-        projects.style.visibility = 'visible';
-        tasks.style.visibility = 'visible';
-    };
     
     inputBox.addEventListener("keydown", function(event) {
         // Number 13 is the "Enter" key on the keyboard

@@ -11,7 +11,6 @@
 
 <body>
     <div class="main-container" id="main-container">
-        <div class="image"></div>
 
         <form class="text-center" id="form1">
             <input type="text" autocomplete="off" class="searchbox" id="searchbox" placeholder="What are you working on?">
@@ -25,25 +24,32 @@
             <input type="text" autocomplete="off" class="task-form" id="task-name" placeholder="task name"></input>
             <input type="text" autocomplete="off" class="task-form" id="task-description" placeholder="description"></input>
             <input type="date" autocomplete="off" class="task-form" id="task-deadline" placeholder="?"></input>
-            <label for="task-due" style="margin-top: -15px; font-size: 1.5rem;">deadline</label>
             <select name="priority" id="priority">
                 <option value="normal" class="task-form">normal priority</option>
                 <option value="IMPORTANT" class="task-form">high priority</option>
             </select>
             <div class="button-container"> 
-                <button type='button' class="button" id="submit-task-button" style="margin-top: 2rem;"> add task </button>
+                <button type='button' class="button" id="submit-task-button"> add task </button>
             </div>
         </form>
 
         <div class="project-container" id="project-container">
             <div class="control-panel" id="control-panel">
-                <p id="panel-name">projects</p>
-                <div class="button" id="add-button"> + </div>
-                <div class="button" id="finished-button">finished</div>
-                <div class="button" id="important-button">important</div>
+                <div class="button-group">
+                    <div class="button" id="add-button"> + </div>
+                    <div class="button" id="finished-button">finished</div>
+                    <div class="button" id="important-button">important</div>
+                </div>
             </div>
             <div class="project-view" id="project-view">
-                <div class="task-button" id="task-button"></div>
+<!--                 <div class="project-buttons" id="project-buttons">
+                    <div class="task-button" id="task-button"> create task </div>
+                    <div class="finished-button" id="finished-button"> mark finished </div>
+                    <div class="delete-button" id="delete-button"> delete project </div>
+                </div> -->
+            </div>
+            <div class="footer">
+                hi
             </div>
         </div>       
     </div>
