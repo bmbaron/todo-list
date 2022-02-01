@@ -9,27 +9,17 @@
     text-align: center;
     justify-content: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
-
-.main-container .image {
-    height: 20%;
-    width: auto;
-    margin: -5px;
-    padding: 0;
-    margin-bottom: 0;
-    background-image: url('../../src/images/image.png');
-    background-size: 100%;
-    background-repeat:no-repeat;
-}
-
 
 .main-container .searchbox{
+    margin-top: 30vh;
     width:300px;
     line-height: 50px !important;
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 4rem;
     min-width: 250px;
     border: 1px solid #dfe1e5;
     box-shadow: none;
@@ -91,60 +81,60 @@
 
 
 .main-container .project-container {
+    margin-top: -40vh;
     visibility: hidden;
-    margin-top: -300px;
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center; 
+    flex-direction: column;
 }
 
 .main-container .project-container .control-panel {
-    margin-top: 30px;
-    width: 25%;
+    margin: auto;
+    width: 40%;
     font-size:2rem;
-    font-style: italic;
-    border: 4px solid black;
-    margin-left: -20px;
-    height: 45%;
-    border-radius: 10px;
-    margin-right: 0.5rem;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
 }
 
-.main-container .project-container .control-panel p {
+/* .main-container .project-container .control-panel p {
     font-size: 2rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 0;
+} */
+
+.button-group {
+    display: flex;
+    flex-direction: row;
 }
 
 .main-container .project-container .control-panel .button {
-    color: white;
-    background: rgb(104,172,231);
-    border-radius: 30px;
-    margin: 10px;
-    width: 17vw;
-    height: 4rem;
+    color: black;
+    background: #c9c7c7;
+    margin: 10px auto auto auto;
+    width: 12vw;
+    height: 3rem;
     text-decoration:none;
-    line-height: 4rem;
+    line-height: 3rem;
     cursor: pointer;
+    font-size: 2.5vw;
+    flex-grow: 1;
+    border: 2px solid black;
 }
 
 .button:hover {
     opacity: 0.7;
 }
 
-.main-container .project-container .control-panel #add-button {
-    font-size: 2rem;
+#add-button {
+    border-bottom-left-radius: 10px;
+    border-right-width: 0;
+}
+#important-button {
+    border-bottom-right-radius: 10px;
+    border-left-width: 0;
 }
 
-.main-container .project-container .control-panel #finished-button {
-    background: rgb(104,172,231);
-}
-
-.main-container .project-container .control-panel #important-button {
-    background: rgb(104,172,231);
-}
 
 .main-container .project-container .project-view {
     width:100%;
@@ -153,15 +143,18 @@
 }
 
 .main-container .project-container .project-view .project {
-    background-color: lightgrey;
+    background-color: white;
+    border: 2px solid black;
     font-size:3.5vw;
     width: 80%;
-    margin: 10px;
     height:fit-content;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    bottom: 4rem;
+    border-radius: 10px;
+    max-width: 50%;
+    margin: auto;
+    margin-top: -2rem;
 }
 
 
@@ -174,44 +167,7 @@
     font-size:2vw;
 }
 
-.main-container .project-container .project-view .project .task-button {
-    color: white;
-    background: rgb(104,172,231);
-    padding: 10px;
-    cursor: pointer;
-    margin-top: auto;
-    font-size: 2vw;
-}
 
-.task-button:hover {
-    opacity: 0.7;
-}
-
-.main-container .project-container .project-view .project .finished-button {
-    color: white;
-    background: green;
-    padding: 10px;
-    cursor: pointer;
-    margin-top: auto;
-    font-size: 2vw;
-}
-
-.finished-button:hover {
-    opacity: 0.7;
-}
-
-.main-container .project-container .project-view .project .delete-button {
-    color: white;
-    background: coral;
-    padding: 10px;
-    cursor: pointer;
-    margin-top: auto;
-    font-size: 2vw;
-}
-
-.delete-button:hover {
-    opacity: 0.7;
-}
 
 .form2 {
     display: flex;
@@ -223,6 +179,7 @@
     border: 3px solid lightyellow;
     background-color: lightskyblue;
     border-radius: 3rem;
+    margin-top: -10rem;
 }
 .task-form {
     text-indent: 15px;
@@ -240,15 +197,82 @@
 }
 
 .task-row {
-    border: 2px solid black;
-    background-color: goldenrod;
+    border-radius: 3px;
     margin-bottom: 1rem;
     padding-bottom: 10px;
+    padding-top: 10px;
+    border: 1px solid black;
 }
 
 .project-view .task-area {
-    flex-grow: 1;
     font-size: 1rem;
-    min-height: 40vh !important;
+    min-height: 10vh !important;
 }
 
+.project-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.project-buttons .task-button {
+    color: black;
+    background: #b5e1f7;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 2vw;
+    flex-grow: calc(1/3);
+}
+
+.task-button:hover {
+    opacity: 0.7;
+}
+
+.project-buttons .finished-button {
+    color: black;
+    background: #deffeb;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 2vw;
+    flex-grow: calc(1/3);
+}
+
+.finished-button:hover {
+    opacity: 0.7;
+}
+
+.project-buttons .delete-button {
+    color: black;
+    background: #fac5d3;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 2vw;
+    flex-grow: calc(1/3);
+}
+
+.delete-button:hover {
+    opacity: 0.7;
+}
+
+
+input[type="date"] {
+    padding: 2px;
+    color: black;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+select{
+    font-size: 1rem;
+    width: 125px;
+    margin: auto;
+    border-radius: 7px;
+}
+
+
+.footer {
+    bottom: 0;
+    flex-grow: 0.2;
+    background: blue;
+}
