@@ -14,10 +14,10 @@ const pManager = (() => {
     let priority = document.getElementById("priority");
     let finishedCounter = 2;
 
-    const addProject = (project) => {
+    const addProject = (p) ={
 
-      if (project == '') {
-        project = '[click to edit]';
+      if (p == '') {
+        p = '[click to edit]';
       }
 
       if (projectArray.length >= 3) {
@@ -25,13 +25,14 @@ const pManager = (() => {
         return;
       }
 
-      projectArray.push(project);
+      projectArray.push(p);
 
       let newProject = document.createElement('div');
       newProject.className = "project";
 
       let projectName = document.createElement('div');
-      projectName.innerHTML = project;
+      projectName.innerHTML = p;
+      projectName.classList.add("project-name");
       projectName.contentEditable = true;
 
       newProject.appendChild(projectName);
@@ -49,9 +50,6 @@ const pManager = (() => {
       projectButtons.classList.add("project-buttons");
       projectButtons.id = "project-buttons";
 
-      newProject.appendChild(projectButtons);
-
-
         let taskButton = document.createElement('div');
         taskButton.classList.add("task-button");
         taskButton.id = "task-button";
@@ -63,6 +61,7 @@ const pManager = (() => {
           form2.style.height = "auto";
           projectContainer.style.visibility = 'hidden';
           taskName.focus();
+          console.log("taskbutton: " + projectName.innerHTML);
           submitTask(newProject);
         };
 
@@ -93,26 +92,73 @@ const pManager = (() => {
         projectButtons.appendChild(deleteButton);
         
         deleteButton.onclick = function(){
-          let parent = this.parentNode;
-          parent.parentNode.remove();
-          projectArray.pop();
+
+          const validateDelete = () => {
+              if (window.confirm("Do you really want to delete this?")) {
+                let parent = this.parentNode;
+                parent.parentNode.remove();
+                projectArray.pop();
+            }
+          };
+
+          validateDelete();
         };
+
+        newProject.appendChild(projectButtons);
     
       };
 
       const submitTask = (project) => {
 
-        let submitTaskButton = document.getElementById("submit-task-button");
+/*         let submitTaskButton = document.getElementById("submit-task-button");
+
+        form2.addEventListener("keypress", function(event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            //submitTaskButton.click();
+            
+          }
+        });
     
         submitTaskButton.onclick = function(){
-          logTask(taskName.value, taskDescription.value, deadline.value, priority, project);
+
+          const validateForm = () => {
+            console.log(taskName.value);
+            if (taskName.value == "") {
+              alert("Task name must be filled out");
+              return false;
+            }
+            else {
+              logTask(taskName.value, taskDescription.value, deadline.value, priority, project);
     
-          taskName.value = "";
-          taskDescription.value = "";
+              taskName.value = "";
+              taskDescription.value = "";
+              form2.style.height = "0";
+              form2.style.visibility = "hidden";
+              projectContainer.style.visibility = 'visible';
+            }
+          };
+
+          validateForm();
     
-          form2.style.height = "0";
-          form2.style.visibility = "hidden";
-          projectContainer.style.visibility = 'visible';
+        }; */
+        
+        let submitTaskButton = document.getElementById("submit-task-button");
+
+        submitTaskButton.onclick = function(){
+
+            if (taskName.value == "") {
+              alert("Task name must be filled out");
+              return false;
+            }
+            else {
+              logTask(taskName.value, taskDescription.value, deadline.value, priority, project);
+              taskName.value = "";
+              taskDescription.value = "";
+              form2.style.height = "0";
+              form2.style.visibility = "hidden";
+              projectContainer.style.visibility = 'visible';
+            }    
         };
       };
 
@@ -121,6 +167,15 @@ const pManager = (() => {
     
 
     const logTask = (name, description, deadline, priority, project) => {
+
+      let row = document.createElement("div");
+
+      let x = document.createElement("a");
+      x.classList.add("delete-article");
+      x.innerHTML = "&#10006";
+      x.onclick = function(){ 
+        this.parentNode.remove();
+      };
 
       let deadlineCopy = document.createElement('INPUT');
       deadlineCopy.setAttribute("type", "date");
@@ -144,12 +199,11 @@ const pManager = (() => {
         priorityCopy.value = priority.value;
 
 
-
-      let row = document.createElement("div");
       row.classList.add("task-row");
       row.innerHTML = "<strong>" + name  + "</strong>" + "<br>" + description +  "<br>";
       row.appendChild(deadlineCopy);
       row.contentEditable = true;
+
 
       if (priority.value == "IMPORTANT") {
         row.style.backgroundColor = "#ffccff";
@@ -157,6 +211,17 @@ const pManager = (() => {
       else {
         row.style.backgroundColor = "#ccffff";
       }
+
+      priorityCopy.addEventListener('change', function() {
+        if (priorityCopy.value == "IMPORTANT") {
+          row.style.backgroundColor = "#ffccff";
+        }
+        else {
+          row.style.backgroundColor = "#ccffff";
+        }
+      }, false);
+
+      row.appendChild(x);
       row.appendChild(priorityCopy);
 
       //console.log(project);
