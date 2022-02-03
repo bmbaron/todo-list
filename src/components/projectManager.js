@@ -1,10 +1,12 @@
 import {tManager} from './taskManager.js'
+import {services} from './services.js'
 
 
 const pManager = (() => {
 
-    let projects = document.getElementById('project-view');
+    let projectView = document.getElementById('project-view');
     let projectArray = [];
+    let finishedProjectArray = [];
     let form2 = document.getElementById("form2");
     let projectContainer = document.getElementById("project-container");
 
@@ -14,37 +16,34 @@ const pManager = (() => {
     let priority = document.getElementById("priority");
     let finishedCounter = 2;
 
-    const addProject = (p) ={
-
-      if (p == '') {
-        p = '[click to edit]';
-      }
+    const addProject = (project) => {
 
       if (projectArray.length >= 3) {
         alert("You can only have 3 active projects. Please delete a project");
         return;
       }
 
-      projectArray.push(p);
+      projectArray.push(project);
 
       let newProject = document.createElement('div');
       newProject.className = "project";
+      newProject.classList.add("active");
 
       let projectName = document.createElement('div');
-      projectName.innerHTML = p;
+      projectName.innerHTML = project;
       projectName.classList.add("project-name");
-      projectName.contentEditable = true;
+
+      if (project == '') {
+        services.editPlaceholder(projectName, "[click to add name]");
+      }
 
       newProject.appendChild(projectName);
-
 
       let taskArea = document.createElement('div');
       taskArea.classList.add("task-area");
       newProject.appendChild(taskArea);
 
-      projects.appendChild(newProject);
-
-      //tManager.addCreateTaskButton(newProject);
+      projectView.appendChild(newProject);
 
       let projectButtons = document.createElement('div');
       projectButtons.classList.add("project-buttons");
@@ -61,8 +60,8 @@ const pManager = (() => {
           form2.style.height = "auto";
           projectContainer.style.visibility = 'hidden';
           taskName.focus();
-          console.log("taskbutton: " + projectName.innerHTML);
-          submitTask(newProject);
+          console.log("clicked create task button");
+          tManager.createTask(newProject);
         };
 
         let finishedButton = document.createElement('div');
@@ -73,9 +72,15 @@ const pManager = (() => {
 
         finishedButton.onclick = function(){
           if (finishedCounter%2 === 0) {
-
+            
             newProject.style.backgroundColor = "lightgreen";
             this.innerHTML = "mark incomplete";
+            finishedProjectArray.push(newProject);
+            projectArray.pop();
+            newProject.classList.remove("active");
+            newProject.classList.add("finished");
+/*             let parent = this.parentNode;
+            parent.parentNode.remove(); */
           }
           else {
             newProject.style.backgroundColor = "white";
@@ -92,144 +97,16 @@ const pManager = (() => {
         projectButtons.appendChild(deleteButton);
         
         deleteButton.onclick = function(){
-
-          const validateDelete = () => {
-              if (window.confirm("Do you really want to delete this?")) {
-                let parent = this.parentNode;
-                parent.parentNode.remove();
-                projectArray.pop();
-            }
-          };
-
-          validateDelete();
+          if (window.confirm("Do you really want to delete this?")) {
+            let parent = this.parentNode;
+            parent.parentNode.remove();
+            projectArray.pop();
+          }
         };
 
         newProject.appendChild(projectButtons);
     
       };
-
-      const submitTask = (project) => {
-
-/*         let submitTaskButton = document.getElementById("submit-task-button");
-
-        form2.addEventListener("keypress", function(event) {
-          if (event.keyCode === 13) {
-            event.preventDefault();
-            //submitTaskButton.click();
-            
-          }
-        });
-    
-        submitTaskButton.onclick = function(){
-
-          const validateForm = () => {
-            console.log(taskName.value);
-            if (taskName.value == "") {
-              alert("Task name must be filled out");
-              return false;
-            }
-            else {
-              logTask(taskName.value, taskDescription.value, deadline.value, priority, project);
-    
-              taskName.value = "";
-              taskDescription.value = "";
-              form2.style.height = "0";
-              form2.style.visibility = "hidden";
-              projectContainer.style.visibility = 'visible';
-            }
-          };
-
-          validateForm();
-    
-        }; */
-        
-        let submitTaskButton = document.getElementById("submit-task-button");
-
-        submitTaskButton.onclick = function(){
-
-            if (taskName.value == "") {
-              alert("Task name must be filled out");
-              return false;
-            }
-            else {
-              logTask(taskName.value, taskDescription.value, deadline.value, priority, project);
-              taskName.value = "";
-              taskDescription.value = "";
-              form2.style.height = "0";
-              form2.style.visibility = "hidden";
-              projectContainer.style.visibility = 'visible';
-            }    
-        };
-      };
-
-
-
-    
-
-    const logTask = (name, description, deadline, priority, project) => {
-
-      let row = document.createElement("div");
-
-      let x = document.createElement("a");
-      x.classList.add("delete-article");
-      x.innerHTML = "&#10006";
-      x.onclick = function(){ 
-        this.parentNode.remove();
-      };
-
-      let deadlineCopy = document.createElement('INPUT');
-      deadlineCopy.setAttribute("type", "date");
-      deadlineCopy.value = deadline;
-
-      let priorityCopy = document.createElement('SELECT');
-
-        let option1 = document.createElement('OPTION');
-        option1.value = "normal";
-        option1.classList.add("task-form");
-        option1.innerHTML = "normal priority";
-
-        let option2 = document.createElement('OPTION');
-        option2.value = "IMPORTANT";
-        option2.classList.add("task-form");
-        option2.innerHTML = "high priority";
-
-        priorityCopy.appendChild(option1);
-        priorityCopy.appendChild(option2);
-
-        priorityCopy.value = priority.value;
-
-
-      row.classList.add("task-row");
-      row.innerHTML = "<strong>" + name  + "</strong>" + "<br>" + description +  "<br>";
-      row.appendChild(deadlineCopy);
-      row.contentEditable = true;
-
-
-      if (priority.value == "IMPORTANT") {
-        row.style.backgroundColor = "#ffccff";
-      }
-      else {
-        row.style.backgroundColor = "#ccffff";
-      }
-
-      priorityCopy.addEventListener('change', function() {
-        if (priorityCopy.value == "IMPORTANT") {
-          row.style.backgroundColor = "#ffccff";
-        }
-        else {
-          row.style.backgroundColor = "#ccffff";
-        }
-      }, false);
-
-      row.appendChild(x);
-      row.appendChild(priorityCopy);
-
-      //console.log(project);
-      let taskArea = project.childNodes[1];
-      taskArea.appendChild(row);
-      //project.insertBefore(row, newTaskButton);
-
-    };
 
 
   
@@ -238,8 +115,7 @@ const pManager = (() => {
 
     
     return {
-      addProject,
-      logTask
+      addProject
       //toggleAnswered,
       //questionBoxes,
 

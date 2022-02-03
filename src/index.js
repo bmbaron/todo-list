@@ -23,6 +23,8 @@
     var tasks = document.getElementById("task-container");
     var projectButton = document.getElementById("project-button");
     var addButton = document.getElementById("add-button");
+    var finishedButton = document.getElementById("finished-button");
+
     
     
     
@@ -52,6 +54,24 @@
         inputBox.focus();
     };
     
+    finishedButton.onclick = function(){
+        alert("clicked");
+
+        var activeProjects = document.getElementsByClassName('active');
+        console.log(activeProjects);
+        document.querySelectorAll('.active').forEach(e => e.remove());
+        var activeProjects = document.getElementsByClassName('active');
+        console.log(activeProjects);
+        //document.querySelectorAll('.finished').forEach(e => e.add());
+
+
+/*          while(activeProjects[0]) {
+            activeProjects[0].parentNode.removeChild(activeProjects[0]);
+        }​ 
+ */
+        //projects.style.visibility = 'hidden';
+        //inputBox.placeholder = 'add a project';
+    };
 
 
     
