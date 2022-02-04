@@ -18,10 +18,10 @@ const pManager = (() => {
 
     const addProject = (project) => {
 
-      if (projectArray.length >= 3) {
+/*       if (projectArray.length >= 3) {
         alert("You can only have 3 active projects. Please delete a project");
         return;
-      }
+      } */
 
       projectArray.push(project);
 
@@ -49,7 +49,7 @@ const pManager = (() => {
       projectButtons.classList.add("project-buttons");
       projectButtons.id = "project-buttons";
 
-        let taskButton = document.createElement('div');
+        let taskButton = document.createElement('button');
         taskButton.classList.add("task-button");
         taskButton.id = "task-button";
         taskButton.innerHTML = "create task";
@@ -60,11 +60,10 @@ const pManager = (() => {
           form2.style.height = "auto";
           projectContainer.style.visibility = 'hidden';
           taskName.focus();
-          console.log("clicked create task button");
           tManager.createTask(newProject);
         };
 
-        let finishedButton = document.createElement('div');
+        let finishedButton = document.createElement('button');
         finishedButton.classList.add("finished-button");
         finishedButton.id = "finished-button";
         finishedButton.innerHTML = "mark finished";
@@ -79,8 +78,8 @@ const pManager = (() => {
             projectArray.pop();
             newProject.classList.remove("active");
             newProject.classList.add("finished");
-/*             let parent = this.parentNode;
-            parent.parentNode.remove(); */
+            newProject.classList.add("hidden");
+            newProject.classList.add("disabled");
           }
           else {
             newProject.style.backgroundColor = "white";
@@ -90,7 +89,7 @@ const pManager = (() => {
         };
 
 
-        let deleteButton = document.createElement('div');
+        let deleteButton = document.createElement('button');
         deleteButton.classList.add("delete-button");
         deleteButton.id = "delete-button";
         deleteButton.innerHTML = "delete project";

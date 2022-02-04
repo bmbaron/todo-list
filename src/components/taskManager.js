@@ -5,15 +5,27 @@ import {services} from './services.js'
 const tManager = (() => {
   
   let form2 = document.getElementById("form2");
+  let projectContainer = document.getElementById("project-container");
+
   let taskName = document.getElementById("task-name");
   let taskDescription = document.getElementById("task-description");
   let deadline = document.getElementById("task-deadline");
   let priority = document.getElementById("priority");
-  let projectContainer = document.getElementById("project-container");
 
   const createTask = (project) => {
             
     let submitTaskButton = document.getElementById("submit-task-button");
+    let cancelButton = document.getElementById("cancel-button");
+
+    form2.addEventListener("keydown", function(event) {
+      // Number 13 is the "Enter" key on the keyboard
+      if (event.keyCode === 13) {
+          // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        submitTaskButton.click();
+      }
+    });
 
     submitTaskButton.onclick = function(){
       if (taskName.value == "") {
@@ -27,12 +39,12 @@ const tManager = (() => {
 
           let x = document.createElement("a");
           x.classList.add("delete-article");
-          x.innerHTML = "&#10006";
+          x.innerHTML = "&#x24E7;";
           x.onclick = function(){ 
             this.parentNode.remove();
           };
     
-          let shownTaskName = document.createElement("h3");    
+          let shownTaskName = document.createElement("h2");    
           shownTaskName.contentEditable = true;
           services.editPlaceholder(shownTaskName, taskName.value);
 
@@ -93,21 +105,33 @@ const tManager = (() => {
       }; 
       taskName.value = "";
       taskDescription.value = "";
+      deadline.value = "";
+
+      form2.style.height = "0";
+      form2.style.visibility = "hidden";
+      projectContainer.style.visibility = 'visible';
+    };
+
+    cancelButton.onclick = function(){
+      taskName.value = "";
+      taskDescription.value = "";
+      deadline.value = "";
+
       form2.style.height = "0";
       form2.style.visibility = "hidden";
       projectContainer.style.visibility = 'visible';
     };
 
 
-    };
+
+  };
 
 
+  return {
+    createTask
+  };
 
-      return {
-        createTask
-      };
-
-      })();
+  })();
   
   
   export {

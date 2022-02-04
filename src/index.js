@@ -22,16 +22,21 @@
     var projects = document.getElementById("project-container");
     var tasks = document.getElementById("task-container");
     var projectButton = document.getElementById("project-button");
+    var cancelButton1 = document.getElementById("cancel-button1");
     var addButton = document.getElementById("add-button");
-    var finishedButton = document.getElementById("finished-button");
-
-    
+    var finishedButton = document.getElementById("finished-projects-button");
+    var activeButton = document.getElementById("active-button");
     
     
     projectButton.onclick = function(){
         var input = inputBox.value;
         pManager.addProject(input);
         inputBox.value = null;
+        form1.style.visibility = 'hidden';
+        projects.style.visibility = 'visible';
+    };
+
+    cancelButton1.onclick = function(){
         form1.style.visibility = 'hidden';
         projects.style.visibility = 'visible';
     };
@@ -45,7 +50,7 @@
           // Trigger the button element with a click
           projectButton.click();
         }
-      });
+    });
     
     addButton.onclick = function(){
         form1.style.visibility = 'visible';
@@ -55,22 +60,26 @@
     };
     
     finishedButton.onclick = function(){
-        alert("clicked");
+        console.log(this)
+        finishedButton.disabled=true;
+        addButton.disabled=true;
+        finishedButton.style.opacity = "0.7";
+        activeButton.disabled=false;
+        activeButton.style.opacity = "1";
+        document.querySelectorAll('.active').forEach(e => e.classList.toggle("hidden"));
+        document.querySelectorAll('.finished').forEach(e => e.classList.toggle("hidden"));
+    };
 
-        var activeProjects = document.getElementsByClassName('active');
-        console.log(activeProjects);
-        document.querySelectorAll('.active').forEach(e => e.remove());
-        var activeProjects = document.getElementsByClassName('active');
-        console.log(activeProjects);
-        //document.querySelectorAll('.finished').forEach(e => e.add());
+    activeButton.onclick = function(){
+        activeButton.disabled=true;
+        addButton.disabled=false;
+        activeButton.style.opacity = "0.7";
+        finishedButton.disabled=false;
+        finishedButton.style.opacity = "1";
+        //var activeProjects = document.getElementsByClassName('active');
+        document.querySelectorAll('.active').forEach(e => e.classList.toggle("hidden"));
+        document.querySelectorAll('.finished').forEach(e => e.classList.toggle("hidden"));
 
-
-/*          while(activeProjects[0]) {
-            activeProjects[0].parentNode.removeChild(activeProjects[0]);
-        }​ 
- */
-        //projects.style.visibility = 'hidden';
-        //inputBox.placeholder = 'add a project';
     };
 
 
