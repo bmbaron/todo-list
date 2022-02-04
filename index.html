@@ -16,12 +16,13 @@
             <input type="text" autocomplete="off" class="searchbox" id="searchbox" placeholder="What are you working on?">
             </input>
             <div class="button-container"> 
+                <button type='button' class="button" id="cancel-button1"> cancel </button>
                 <button type='button' class="button" id="project-button"> add project </button>
             </div>
         </form>
 
          <form class="text-center form2" id="form2" name="form2">
-            <input type="text" autocomplete="off" class="task-form" id="task-name" name="task-name" placeholder="task name" required>
+            <input type="text" autocomplete="off" class="task-form" id="task-name" name="task-name" placeholder="* task name" required>
             <input type="text" autocomplete="off" class="task-form" id="task-description" name="task-description" placeholder="description"></input>
             <input type="date" autocomplete="off" class="task-form" id="task-deadline" placeholder="?"></input>
             <select name="priority" id="priority">
@@ -29,6 +30,7 @@
                 <option value="IMPORTANT" class="task-form">high priority</option>
             </select>
             <div class="button-container"> 
+                <button type='button' class="button" id="cancel-button">cancel</button>
                 <button type='button' class="button" id="submit-task-button"> add task </button>
             </div>
         </form>
@@ -36,9 +38,9 @@
         <div class="project-container" id="project-container">
             <div class="control-panel" id="control-panel">
                 <div class="button-group">
-                    <div class="button" id="add-button"> + </div>
-                    <div class="button" id="finished-button">finished</div>
-                    <div class="button" id="important-button">important</div>
+                    <button class="button" id="add-button" title="add a project"> + </button>
+                    <button class="button" id="active-button" title="view active projects">active</button>
+                    <button class="button" id="finished-projects-button" title="view finished projects">finished</button>
                 </div>
             </div>
             <div class="project-view" id="project-view">
