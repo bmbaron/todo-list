@@ -43,6 +43,8 @@ const tManager = (() => {
           x.onclick = function(){ 
             this.parentNode.remove();
           };
+          row.appendChild(x);
+
     
           let shownTaskName = document.createElement("h2");    
           shownTaskName.contentEditable = true;
@@ -56,16 +58,15 @@ const tManager = (() => {
           row.appendChild(shownTaskDesc);
 
           let deadlineCopy = document.createElement('INPUT');
+          deadlineCopy.classList.add("deadline");
           deadlineCopy.setAttribute("type", "date");
-          deadlineCopy.value = deadline;
+          deadlineCopy.value = deadline.value;
 
           let deadlineAndPriority = document.createElement('div');
           deadlineAndPriority.classList.add("deadline-and-priority");
           deadlineAndPriority.appendChild(deadlineCopy);  
 
           let priorityCopy = document.createElement('SELECT');
-          priorityCopy.value = priority.value;
-
             let option1 = document.createElement('OPTION');
             option1.value = "normal";
             option1.classList.add("task-form");
@@ -77,6 +78,7 @@ const tManager = (() => {
     
             priorityCopy.appendChild(option1);
             priorityCopy.appendChild(option2);  
+            priorityCopy.value = priority.value;
     
           if (priority.value == "IMPORTANT") {
             row.style.backgroundColor = "#ffccff";
@@ -96,7 +98,6 @@ const tManager = (() => {
     
           deadlineAndPriority.appendChild(priorityCopy); 
           
-          row.appendChild(x);
           row.appendChild(deadlineAndPriority);
 
 

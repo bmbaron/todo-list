@@ -15,6 +15,7 @@ const pManager = (() => {
     let deadline = document.getElementById("task-deadline");
     let priority = document.getElementById("priority");
     let finishedCounter = 2;
+    let counter = 0;
 
     const addProject = (project) => {
 
@@ -23,18 +24,21 @@ const pManager = (() => {
         return;
       } */
 
+
       projectArray.push(project);
 
       let newProject = document.createElement('div');
       newProject.className = "project";
       newProject.classList.add("active");
+      newProject.id = counter;
 
       let projectName = document.createElement('div');
       projectName.innerHTML = project;
+      projectName.id = "name" + counter;
       projectName.classList.add("project-name");
 
       if (project == '') {
-        services.editPlaceholder(projectName, "[click to add name]");
+        services.editPlaceholder(projectName, "[click to name project]");
       }
 
       newProject.appendChild(projectName);
@@ -47,7 +51,8 @@ const pManager = (() => {
 
       let projectButtons = document.createElement('div');
       projectButtons.classList.add("project-buttons");
-      projectButtons.id = "project-buttons";
+      projectButtons.id = "project-buttons" + counter;
+      counter++;
 
         let taskButton = document.createElement('button');
         taskButton.classList.add("task-button");
@@ -70,9 +75,8 @@ const pManager = (() => {
         projectButtons.appendChild(finishedButton);
 
         finishedButton.onclick = function(){
-          if (finishedCounter%2 === 0) {
             
-            newProject.style.backgroundColor = "lightgreen";
+            newProject.style.backgroundColor = "#deffeb";
             this.innerHTML = "mark incomplete";
             finishedProjectArray.push(newProject);
             projectArray.pop();
@@ -80,12 +84,8 @@ const pManager = (() => {
             newProject.classList.add("finished");
             newProject.classList.add("hidden");
             newProject.classList.add("disabled");
-          }
-          else {
-            newProject.style.backgroundColor = "white";
-            this.innerHTML = "mark finished";
-          }
-          finishedCounter++;
+            var buttons = document.getElementById("project-buttons" + newProject.id);
+            buttons.style.display="none";
         };
 
 

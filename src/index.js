@@ -30,10 +30,12 @@
     
     projectButton.onclick = function(){
         var input = inputBox.value;
-        pManager.addProject(input);
         inputBox.value = null;
         form1.style.visibility = 'hidden';
         projects.style.visibility = 'visible';
+        pManager.addProject(input);
+        activeButton.disabled=true;
+        activeButton.style.opacity = "0.5";
     };
 
     cancelButton1.onclick = function(){
@@ -60,10 +62,9 @@
     };
     
     finishedButton.onclick = function(){
-        console.log(this)
         finishedButton.disabled=true;
         addButton.disabled=true;
-        finishedButton.style.opacity = "0.7";
+        finishedButton.style.opacity = "0.5";
         activeButton.disabled=false;
         activeButton.style.opacity = "1";
         document.querySelectorAll('.active').forEach(e => e.classList.toggle("hidden"));
@@ -73,13 +74,14 @@
     activeButton.onclick = function(){
         activeButton.disabled=true;
         addButton.disabled=false;
-        activeButton.style.opacity = "0.7";
+        activeButton.style.opacity = "0.5";
         finishedButton.disabled=false;
         finishedButton.style.opacity = "1";
-        //var activeProjects = document.getElementsByClassName('active');
         document.querySelectorAll('.active').forEach(e => e.classList.toggle("hidden"));
         document.querySelectorAll('.finished').forEach(e => e.classList.toggle("hidden"));
-
+        if (document.querySelectorAll('.active').length == 0) {
+            addButton.click();
+        }
     };
 
 
