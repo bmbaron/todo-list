@@ -3,7 +3,7 @@ body {
 }
 .background {
     position: absolute;
-    background-image: url("../src/images/image.jpg");
+    background-image: url("https://raw.githubusercontent.com/bmbaron/todo-list/main/src/images/image.jpg");
     height: 100vh;
     width: 100%;
     background-size: cover;
