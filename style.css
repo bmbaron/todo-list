@@ -1,3 +1,15 @@
+body {
+    position: relative;
+}
+.background {
+    position: absolute;
+    background-image: url("../src/images/image.jpg");
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    z-index: -999;
+}
+
 .main-container {
     margin: 0;
     padding: 0;
@@ -50,13 +62,6 @@
     height: 3rem;
     cursor: pointer;
 }
-
-.main-container .button-container .button:hover {
-
-    border: 1px solid lightgrey;
-}
-
-
 
 @media (max-width: 500px) {
 
@@ -119,11 +124,12 @@
     cursor: pointer;
     font-size: 2.5vw;
     flex-grow: 1;
-    border: 2px solid black;
+    border: 1px solid #dfe1e5;
 }
 
 .button:hover {
     opacity: 0.7;
+    border: none;
 }
 
 .main-container .project-container .control-panel #add-button{
@@ -145,8 +151,8 @@
 
 
 .main-container .project-container .project-view .project {
-    background-color: white;
-    border: 2px solid black;
+    background: white;
+    border: 1px solid #dfe1e5;
     font-size:3.5vw;
     width: 80%;
     height:fit-content;
@@ -164,11 +170,11 @@
 .main-container .project-container .project-view .project .project-name{
     width: fit-content;
     padding: 10px;
-    background: lightgrey;
+    background: white;
     margin: auto;
     margin-bottom: 1rem;
     border-radius: 5px;
-    border: 2px solid black;
+    border: 1px solid #dfe1e5;
 }
 
 
@@ -192,7 +198,7 @@
     height: 0;
     width: 50%;
     margin: auto;
-    border: 3px solid lightyellow;
+    border: 1px solid #dfe1e5;
     background-color: lightskyblue;
     border-radius: 3rem;
     margin-top: -10rem;
@@ -234,7 +240,7 @@
     margin-bottom: 1rem;
     padding-bottom: 10px;
     padding-top: 10px;
-    border: 1px solid black;
+    border: 1px solid #dfe1e5;
 }
 
 .project-view .task-area {
@@ -248,16 +254,8 @@
 }
 
 .project-buttons > * {
-    border: 1px solid black;
-    margin-bottom: calc();
-
+    border: 1px solid #dfe1e5;
 }
-
-
-button {
-    border: 0;
-}
-
 
 .project-buttons .task-button {
     color: black;
@@ -330,7 +328,7 @@ select{
     display: block;
     float: right;
     padding-right: 12px;
-    margin-top: -3.5rem;
+    margin-top: -0.6rem;
     text-align: center;
     font-style: normal;
     color: black;
@@ -340,32 +338,37 @@ select{
     font-size: 1.5rem;
   }
 
-  h2 {
-    width: 35%;
-    margin: 0 auto 0 auto;
-  }
+h2 {
+    width: 45%;
+    margin: 0 auto 15px auto;
+}
 
-  h4 {
+h4 {
     margin: auto !important;
-    width: 90% !important;
-  }
+    width: 45% !important;
+}
 
-  div[contenteditable=true] > div {
+div[contenteditable=true] > div {
     display:inline-block;
 } 
 
 .deadline-and-priority {
     display: flex;
     flex-direction: row;
-    margin-left: 1rem;
-    margin-right: 1rem;
     min-width: 50px;
+    width: 50%;
+    margin: auto;
 }
 
 .deadline-and-priority > * {
+    flex-grow: 1;
 }
 
-@media (max-width: 800px) {
+.deadline {
+    margin-right: 10px !important;
+}
+
+@media (max-width: 1000px) {
     .deadline-and-priority {
         flex-direction: column;
         margin: auto;
@@ -375,7 +378,12 @@ select{
        width: 130px;
        margin: auto;
     }
+    .deadline {
+        margin-right: auto !important;
+    }
 }
+
+
 
 @media (max-width: 610px) {
     .task-form {
@@ -395,13 +403,18 @@ select{
 
 #cancel-button1 {
     background: #f5e642;
-    color: grey;
+    color: black;
 
 }
 
 #cancel-button {
     background: #f5e642;
-    color: grey;
+    color: black;
+}
+
+#submit-task-button {
+    background: white;
+    color: black;
 }
 
 .disabled {
