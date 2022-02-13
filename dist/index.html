@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script defer="defer" src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="#">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
             </div>
         </form>
 
-         <form class="text-center form2" id="form2" name="form2">
+         <form onkeydown="return event.key != 'Enter';" class="text-center form2" id="form2" name="form2">
             <input type="text" autocomplete="off" class="task-form" id="task-name" name="task-name" placeholder="* task name" required>
             <input type="text" autocomplete="off" class="task-form" id="task-description" name="task-description" placeholder="description"></input>
             <input type="date" autocomplete="off" class="task-form" id="task-deadline" placeholder="?"></input>

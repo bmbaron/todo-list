@@ -1,8 +1,6 @@
 const services = (() => {
 
     const editPlaceholder = (element, placeholderText) => {
-
-        element.contentEditable = true;
         element.setAttribute('placeholder', placeholderText);
         const placeholder = element.getAttribute('placeholder');
 

@@ -12,25 +12,27 @@ const tManager = (() => {
   let deadline = document.getElementById("task-deadline");
   let priority = document.getElementById("priority");
 
-  const createTask = (project) => {
-            
-    let submitTaskButton = document.getElementById("submit-task-button");
-    let cancelButton = document.getElementById("cancel-button");
+  let submitTaskButton = document.getElementById("submit-task-button");
+  let cancelButton = document.getElementById("cancel-button");
 
-    form2.addEventListener("keydown", function(event) {
-      // Number 13 is the "Enter" key on the keyboard
-      if (event.keyCode === 13) {
-          // Cancel the default action, if needed
-        event.preventDefault();
-        // Trigger the button element with a click
-        submitTaskButton.click();
-      }
-    });
+  form2.addEventListener("keydown", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      submitTaskButton.click();
+      return false;
+    }
+  });
+
+  const createTask = (project) => {
 
     submitTaskButton.onclick = function(){
+      
       if (taskName.value == "") {
         alert("Task name must be filled out");
-        return false;
+        return;
       }
       else {
 
@@ -111,10 +113,11 @@ const tManager = (() => {
       form2.style.height = "0";
       form2.style.visibility = "hidden";
       projectContainer.style.visibility = 'visible';
+      
     };
 
     cancelButton.onclick = function(){
-      taskName.value = "";
+      taskName.value = " ";
       taskDescription.value = "";
       deadline.value = "";
 

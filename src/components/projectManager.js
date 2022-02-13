@@ -36,6 +36,7 @@ const pManager = (() => {
       projectName.innerHTML = project;
       projectName.id = "name" + counter;
       projectName.classList.add("project-name");
+      projectName.contentEditable = true;
 
       if (project == '') {
         services.editPlaceholder(projectName, "[click to name project]");
