@@ -13,9 +13,7 @@
         layout.homePage();
     }); */
 
-    import {pManager} from './components/projectManager.js'
-    import {tManager} from './components/taskManager.js'
-    
+    import {pManager} from './components/projectManager.js'    
     
     var form1 = document.getElementById("form1");
     var inputBox= document.getElementById("searchbox");
@@ -26,7 +24,7 @@
     var addButton = document.getElementById("add-button");
     var finishedButton = document.getElementById("finished-projects-button");
     var activeButton = document.getElementById("active-button");
-    
+
     
     projectButton.onclick = function(){
         var input = inputBox.value;
@@ -63,7 +61,6 @@
     
     finishedButton.onclick = function(){
         finishedButton.disabled=true;
-        addButton.disabled=true;
         finishedButton.style.opacity = "0.5";
         activeButton.disabled=false;
         activeButton.style.opacity = "1";

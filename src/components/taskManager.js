@@ -1,4 +1,3 @@
-import { pManager } from "./projectManager";
 import {services} from './services.js'
 
 
@@ -83,18 +82,18 @@ const tManager = (() => {
             priorityCopy.value = priority.value;
     
           if (priority.value == "IMPORTANT") {
-            row.style.backgroundColor = "#ffccff";
+            row.style.backgroundColor = "#0d86bf";
           }
           else {
-            row.style.backgroundColor = "#ccffff";
+            row.style.backgroundColor = "#9EEBED";
           }
     
           priorityCopy.addEventListener('change', function() {
             if (priorityCopy.value == "IMPORTANT") {
-              row.style.backgroundColor = "#ffccff";
+              row.style.backgroundColor = "#0d86bf";
             }
             else {
-              row.style.backgroundColor = "#ccffff";
+              row.style.backgroundColor = "#9EEBED";
             }
           }, false);
     

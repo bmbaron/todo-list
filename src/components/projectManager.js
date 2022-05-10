@@ -76,8 +76,7 @@ const pManager = (() => {
         projectButtons.appendChild(finishedButton);
 
         finishedButton.onclick = function(){
-            
-            newProject.style.backgroundColor = "#deffeb";
+            newProject.style.backgroundColor = "#b0f9ac";
             this.innerHTML = "mark incomplete";
             finishedProjectArray.push(newProject);
             projectArray.pop();

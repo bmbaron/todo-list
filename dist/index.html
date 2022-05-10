@@ -23,7 +23,7 @@
             </div>
         </form>
 
-         <form onkeydown="return event.key != 'Enter';" class="text-center form2" id="form2" name="form2">
+         <form class="text-center form2" id="form2" name="form2">
             <input type="text" autocomplete="off" class="task-form" id="task-name" name="task-name" placeholder="* task name" required>
             <input type="text" autocomplete="off" class="task-form" id="task-description" name="task-description" placeholder="description"></input>
             <input type="date" autocomplete="off" class="task-form" id="task-deadline" placeholder="?"></input>
@@ -37,7 +37,8 @@
             </div>
         </form>
 
-        <div class="project-container" id="project-container">
+        <div class="title-container" id="title-container">
+            <h1>to-do list</h1>
             <div class="control-panel" id="control-panel">
                 <div class="button-group">
                     <button class="button" id="add-button" title="add a project"> + </button>
@@ -45,12 +46,10 @@
                     <button class="button" id="finished-projects-button" title="view finished projects">finished</button>
                 </div>
             </div>
+        </div>
+
+        <div class="project-container" id="project-container">
             <div class="project-view" id="project-view">
-<!--                 <div class="project-buttons" id="project-buttons">
-                    <div class="task-button" id="task-button"> create task </div>
-                    <div class="finished-button" id="finished-button"> mark finished </div>
-                    <div class="delete-button" id="delete-button"> delete project </div>
-                </div> -->
             </div>
             <div class="footer">
             </div>
