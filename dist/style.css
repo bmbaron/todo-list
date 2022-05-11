@@ -11,19 +11,18 @@ body {
     position: absolute;
     background-image: url("https://raw.githubusercontent.com/bmbaron/todo-list/main/src/images/image.jpg");
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-size: cover;
     z-index: -999;
 }
 
 .main-container {
-    margin: 0;
+    margin: auto;
     padding: 0;
-    width: 100%;
     height: 100vh;
+    width: 100vw !important;
     text-align: center;
     justify-content: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -91,19 +90,21 @@ body {
 .main-container .title-container {
     display: flex;
     flex-direction: column;
-    font-family: fantasy;
     padding: 0;
     color: #064A88;
     position: fixed;
     top: -1rem;
     width: 100%;
     text-align: center;
+    z-index: 100;
 }
 .main-container .title-container h1 {
-    margin-left: 1rem;
+    font-family: 'Truculenta', sans-serif;
+    margin: auto;
+    margin-top: 2rem;
     display: flex;
-    font-size: 2rem;
     margin-bottom: 0;
+    font-size: clamp(30px, 4vw, 5vw);
 }
 
 .main-container .title-container .control-panel {
@@ -113,8 +114,15 @@ body {
     font-size:2rem;
     visibility: hidden;
     height: 4rem;
+    background: #C1F6F9;
+    border-radius: 10px;
 }
 
+@media (max-width: 610px) {
+    .main-container .title-container .control-panel {
+        width: 100vw;
+    }
+}
 
 .button-group {
     display: flex;
@@ -125,10 +133,11 @@ body {
     background: #064A88;
     color: white;
     width: 12vw;
+    min-width: 100px;
     text-decoration: none;
     line-height: 3rem;
     cursor: pointer;
-    font-size: 3vw;
+    font-size: clamp(25px, 3vw, 3vw);
     flex-grow: 1;
     border: 1px solid #dfe1e5;
     border-radius: 10px;
@@ -141,46 +150,66 @@ body {
 
 .main-container .project-container {
     visibility: hidden;
-    width: 100%;
+    width: 100vw;
     overflow: scroll;
-    margin-top: -5rem;
+    margin: auto;
+    margin-top: -4rem;
     display: flex;
     flex-grow: 1;
+    margin-bottom: 3rem;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.main-container .project-container::-webkit-scrollbar {
+    display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+.main-container .project-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .main-container .project-container .project-view {
-    width:100%;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 3rem;
+    margin: auto;
+    margin-top: 6rem;
 }
 
 
 .main-container .project-container .project-view .project {
     background: white;
     font-size: 3.5vw;
-    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
     padding: 10px;
     border-radius: 10px;
-    max-width: 50%;
+    width: 50%;
     margin: auto;
-    margin-top: -2rem;
+    margin-top: -3rem;
     margin-bottom: 4rem;
-    min-width: 0;
+    color: white;
 }
 
+@media (max-width: 610px) {
+    .main-container .project-container .project-view .project {
+        width: 80%;
+    }
+}
 .main-container .project-container .project-view .project .project-name{
     width: fit-content;
+    font-size: 2rem;
     padding: 10px;
     background:#064A88;
     opacity: 0.7;
     color: white;
     margin: auto;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 5px;
 }
 
@@ -202,14 +231,15 @@ body {
     flex-direction: column;
     visibility: hidden;
     height: 0;
-    width: 50%;
+    width: 80%;
     margin: auto;
     border: 1px solid #dfe1e5;
     background-color: lightskyblue;
     border-radius: 3rem;
     position: relative;
     top: -10rem; 
-    margin-bottom: -10rem;
+    margin-bottom: -10rem;    
+    font-size: clamp(15px, 3vw, 3vw);
 }
 
 .form2 > input {
@@ -224,24 +254,11 @@ body {
     box-shadow: none;
     border-radius: 24px;
     outline: none !important;
-    font-size: 1.5rem;
     margin-top: 1.5rem;
     margin-bottom: 0.7rem;
     line-height: 2rem;
+    font-size: clamp(25px, 3vw, 3vw);
 }
-
-@media (max-width: 850px) {
-    .task-form {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 610px) {
-    .task-form {
-        font-size: 0.7rem;
-    }
-}
-
 
 .task-row {
     border-radius: 10px;
@@ -251,7 +268,6 @@ body {
 }
 
 .project-view .task-area {
-    font-size: 1rem;
     min-height: 10vh !important;
     margin: auto;
     width: 80%;
@@ -273,6 +289,7 @@ body {
     flex-grow: calc(1/3);
     border-bottom-left-radius: 10px;
     border: 0;
+    font-size: clamp(20px, 2vw, 3vw);
 }
 
 .task-button:hover {
@@ -287,6 +304,7 @@ body {
     font-size: 2vw;
     flex-grow: calc(1/3);
     border: 0;
+    font-size: clamp(20px, 2vw, 3vw);
 }
 
 .finished-button:hover {
@@ -302,6 +320,7 @@ body {
     flex-grow: calc(1/3);
     border-bottom-right-radius: 10px;
     border: 0;
+    font-size: clamp(20px, 2vw, 3vw);
 }
 
 .delete-button:hover {

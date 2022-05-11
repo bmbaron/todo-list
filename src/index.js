@@ -53,6 +53,7 @@
     });
     
     addButton.onclick = function(){
+        document.getElementById("control-panel").style.visibility = "hidden";
         form1.style.visibility = 'visible';
         projects.style.visibility = 'hidden';
         inputBox.placeholder = 'add a project';

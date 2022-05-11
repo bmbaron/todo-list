@@ -18,13 +18,9 @@ const pManager = (() => {
     let counter = 0;
 
     const addProject = (project) => {
-
+      document.getElementById("control-panel").style.visibility = "visible";
 
       projectArray.push(project);
-
-      if (projectArray.length === 1) {
-        document.getElementById("control-panel").style.visibility = "visible";
-      }
 
       let newProject = document.createElement('div');
       newProject.className = "project";
@@ -62,6 +58,7 @@ const pManager = (() => {
         projectButtons.appendChild(taskButton);
 
         taskButton.onclick = function(){
+          document.getElementById("control-panel").style.visibility = "hidden";
           form2.style.visibility = "visible";
           form2.style.height = "auto";
           projectContainer.style.visibility = 'hidden';

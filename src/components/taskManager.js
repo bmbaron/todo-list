@@ -28,13 +28,12 @@ const tManager = (() => {
   const createTask = (project) => {
 
     submitTaskButton.onclick = function(){
-      
+      document.getElementById("control-panel").style.visibility = "visible";
       if (taskName.value == "") {
         alert("Task name must be filled out");
         return;
       }
       else {
-
         let row = document.createElement("div");
         row.classList.add("task-row");
 
@@ -83,17 +82,21 @@ const tManager = (() => {
     
           if (priority.value == "IMPORTANT") {
             row.style.backgroundColor = "#0d86bf";
+            row.style.color = "white";
           }
           else {
             row.style.backgroundColor = "#9EEBED";
+            row.style.color = "black";
           }
     
           priorityCopy.addEventListener('change', function() {
             if (priorityCopy.value == "IMPORTANT") {
+              row.style.color = "white";
               row.style.backgroundColor = "#0d86bf";
             }
             else {
               row.style.backgroundColor = "#9EEBED";
+              row.style.color = "black";
             }
           }, false);
     
