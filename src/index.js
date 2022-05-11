@@ -61,6 +61,7 @@
     
     finishedButton.onclick = function(){
         finishedButton.disabled=true;
+        addButton.disabled=true;
         finishedButton.style.opacity = "0.5";
         activeButton.disabled=false;
         activeButton.style.opacity = "1";

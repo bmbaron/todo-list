@@ -19,13 +19,12 @@ const pManager = (() => {
 
     const addProject = (project) => {
 
-/*       if (projectArray.length >= 3) {
-        alert("You can only have 3 active projects. Please delete a project");
-        return;
-      } */
-
 
       projectArray.push(project);
+
+      if (projectArray.length === 1) {
+        document.getElementById("control-panel").style.visibility = "visible";
+      }
 
       let newProject = document.createElement('div');
       newProject.className = "project";
@@ -34,6 +33,7 @@ const pManager = (() => {
 
       let projectName = document.createElement('div');
       projectName.innerHTML = project;
+      projectName.spellcheck = false;
       projectName.id = "name" + counter;
       projectName.classList.add("project-name");
       projectName.contentEditable = true;
