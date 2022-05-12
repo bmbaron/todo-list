@@ -34,9 +34,7 @@ const pManager = (() => {
       projectName.classList.add("project-name");
       projectName.contentEditable = true;
 
-      if (project == '') {
-        services.editPlaceholder(projectName, "[click to name project]");
-      }
+      services.editPlaceholder(projectName, projectName.innerHTML, "[click to name project]");
 
       newProject.appendChild(projectName);
 
@@ -58,6 +56,7 @@ const pManager = (() => {
         projectButtons.appendChild(taskButton);
 
         taskButton.onclick = function(){
+          document.getElementById("title-container").style.visibility = "hidden";
           document.getElementById("control-panel").style.visibility = "hidden";
           form2.style.visibility = "visible";
           form2.style.height = "auto";
@@ -73,16 +72,17 @@ const pManager = (() => {
         projectButtons.appendChild(finishedButton);
 
         finishedButton.onclick = function(){
-            newProject.style.backgroundColor = "#b0f9ac";
-            this.innerHTML = "mark incomplete";
             finishedProjectArray.push(newProject);
             projectArray.pop();
             newProject.classList.remove("active");
             newProject.classList.add("finished");
             newProject.classList.add("hidden");
             newProject.classList.add("disabled");
-            var buttons = document.getElementById("project-buttons" + newProject.id);
+            let buttons = document.getElementById("project-buttons" + newProject.id);
             buttons.style.display="none";
+            newProject.childNodes.forEach((n) => {
+              n.contentEditable = false;
+            });
         };
 
 

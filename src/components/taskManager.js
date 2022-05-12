@@ -28,7 +28,9 @@ const tManager = (() => {
   const createTask = (project) => {
 
     submitTaskButton.onclick = function(){
+      document.getElementById("title-container").style.visibility = "visible";
       document.getElementById("control-panel").style.visibility = "visible";
+
       if (taskName.value == "") {
         alert("Task name must be filled out");
         return;
@@ -44,15 +46,14 @@ const tManager = (() => {
             this.parentNode.remove();
           };
           row.appendChild(x);
-
     
           let shownTaskName = document.createElement("h2");    
           shownTaskName.contentEditable = true;
-          services.editPlaceholder(shownTaskName, taskName.value);
+          services.editPlaceholder(shownTaskName, '', taskName.value);
 
           let shownTaskDesc = document.createElement("h4");
           shownTaskDesc.classList.add("description");
-          services.editPlaceholder(shownTaskDesc, taskDescription.value);
+          services.editPlaceholder(shownTaskDesc, '', taskDescription.value);
   
           row.appendChild(shownTaskName);
           row.appendChild(shownTaskDesc);
