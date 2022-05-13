@@ -18,8 +18,8 @@ const pManager = (() => {
     let counter = 0;
 
     const addProject = (project) => {
-      document.getElementById("control-panel").style.visibility = "visible";
 
+      document.getElementById("control-panel").style.visibility = "visible";
       projectArray.push(project);
 
       let newProject = document.createElement('div');
@@ -33,7 +33,6 @@ const pManager = (() => {
       projectName.id = "name" + counter;
       projectName.classList.add("project-name");
       projectName.contentEditable = true;
-
       services.editPlaceholder(projectName, projectName.innerHTML, "[click to name project]");
 
       newProject.appendChild(projectName);

@@ -49,10 +49,13 @@ const tManager = (() => {
     
           let shownTaskName = document.createElement("h2");    
           shownTaskName.contentEditable = true;
+          shownTaskName.spellcheck = false;
           services.editPlaceholder(shownTaskName, '', taskName.value);
 
           let shownTaskDesc = document.createElement("h4");
           shownTaskDesc.classList.add("description");
+          shownTaskDesc.contentEditable = true;
+          shownTaskDesc.spellcheck = false;
           services.editPlaceholder(shownTaskDesc, '', taskDescription.value);
   
           row.appendChild(shownTaskName);
@@ -120,6 +123,9 @@ const tManager = (() => {
     };
 
     cancelButton.onclick = function(){
+      document.getElementById("title-container").style.visibility = "visible";
+      document.getElementById("control-panel").style.visibility = "visible";
+
       taskName.value = " ";
       taskDescription.value = "";
       deadline.value = "";

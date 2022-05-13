@@ -38,6 +38,8 @@
 
     cancelButton1.onclick = function(){
         form1.style.visibility = 'hidden';
+        document.getElementById("title-container").style.visibility = "visible";
+        document.getElementById("control-panel").style.visibility = "visible";
         projects.style.visibility = 'visible';
     };
     
@@ -62,8 +64,8 @@
     
     finishedButton.onclick = function(){
         finishedButton.disabled=true;
-        addButton.disabled=true;
         finishedButton.style.opacity = "0.5";
+        addButton.disabled=true;
         activeButton.disabled=false;
         activeButton.style.opacity = "1";
         document.querySelectorAll('.active').forEach(e => e.classList.toggle("hidden"));
@@ -71,8 +73,8 @@
     };
 
     activeButton.onclick = function(){
-        activeButton.disabled=true;
         addButton.disabled=false;
+        activeButton.disabled=true;
         activeButton.style.opacity = "0.5";
         finishedButton.disabled=false;
         finishedButton.style.opacity = "1";
