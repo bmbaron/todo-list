@@ -61,11 +61,11 @@ body {
     padding: 10px;
     border: none;
     border-radius: 30px;
-    color: black;
+    color: white;
     width: 7rem;
     height: 3rem;
     cursor: pointer;
-    background:#9EEBED;
+    background: #064686;
 
 }
 
@@ -99,7 +99,7 @@ body {
     text-align: center;
     z-index: 100;
     background: #C1F6F9;
-    height: 2rem;
+    height: 12rem;
 }
 .main-container .title-container h1 {
     font-family: 'Truculenta', sans-serif;
@@ -122,6 +122,10 @@ body {
 }
 
 @media (max-width: 610px) {
+    .main-container .title-container {
+        height: 8rem;
+        background: none;
+    }
     .main-container .title-container h1 {
         margin-top: 1rem;
     }
@@ -133,7 +137,7 @@ body {
     }
     .main-container .title-container .control-panel .button {
         width: 7rem !important;
-        font-size: 1rem !important;
+        /* font-size: 1rem !important; */
     }
 }
 
@@ -165,7 +169,7 @@ body {
     width: 100vw;
     overflow: scroll;
     margin: auto;
-    margin-top: -6rem;
+    margin-top: -2rem;
     display: flex;
     flex-grow: 1;
     margin-bottom: 0rem;
@@ -214,7 +218,7 @@ body {
 }
 .main-container .project-container .project-view .project .project-name{
     width: fit-content;
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 10px;
     background:#064A88;
     opacity: 0.7;
@@ -223,6 +227,7 @@ body {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -258,6 +263,17 @@ body {
     .main-container .project-container {
         margin-top: -3rem;
     }
+    .main-container .project-container .project-view .project .project-name {
+        font-size: 2rem;
+    }
+    .project-view .task-area .task-row h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .project-view .task-area .task-row h4 {
+        font-size: 1rem !important;
+    }
+
     .form2[style *= "visibility: visible;"] {
         margin-top: -2rem;
     }
@@ -273,11 +289,18 @@ body {
         margin-top: 1rem;
     }
     .form2 > input[type="date"]:not(.has-value):before {
-            color: grey;
             content: attr(placeholder);
-            font-size: 1rem;
+            color: grey;
             margin-top: 0;
             margin-bottom: 0;
+    }
+    .form2 > input[type="date"]:after{
+        content: none;
+    }
+    .form2 > input[type="date"]{
+        font-size: 1.5rem;
+        background: white;
+        color: black;
     }
     .form2 > select {
         height: 2rem !important;
@@ -302,13 +325,7 @@ body {
     margin-bottom: 0.7rem;
     line-height: 2rem;
     font-size: 2rem;
-}
-
-.task-row {
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    z-index: 2;
 }
 
 .project-view .task-area {
@@ -316,6 +333,28 @@ body {
     margin: auto;
     width: 80%;
     margin-bottom: 20px;
+}
+
+.project-view .task-area .task-row {
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.project-view .task-area .task-row h2 {
+    font-size: 2.5rem;
+    width: 70%;
+    margin: 0 auto 15px auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.project-view .task-area .task-row h4 {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .project-buttons {
@@ -409,16 +448,7 @@ select{
     height: 16px;
     cursor: pointer;
     font-size: 1.5rem;
-  }
-
-h2 {
-    width: 70%;
-    margin: 0 auto 15px auto;
-}
-
-h4 {
-    margin: auto !important;
-    width: 45% !important;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 div[contenteditable=true] > div {
@@ -492,3 +522,7 @@ div[contenteditable=true] > div {
 }
 
 button[disabled]{pointer-events:none;}
+
+[contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+}
