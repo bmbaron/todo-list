@@ -41,7 +41,6 @@ body {
     padding-left: 10px;
     outline: none !important;
     font-size: 1.4rem;
-
 }
 
 .main-container .searchbox:hover {
@@ -98,7 +97,7 @@ body {
     width: 100%;
     text-align: center;
     z-index: 100;
-    background: #C1F6F9;
+    background: none;
     height: 12rem;
 }
 .main-container .title-container h1 {
