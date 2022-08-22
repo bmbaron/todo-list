@@ -1,4 +1,5 @@
 import {services} from './services.js'
+import {addTask, getAProject} from './firebaseManager.js'    
 
 
 const tManager = (() => {
@@ -112,6 +113,16 @@ const tManager = (() => {
           let taskArea = project.childNodes[1];
           taskArea.appendChild(row);    
       }; 
+
+      addTask(project.firstChild.textContent,
+        {
+          task: taskName.value,
+          description: taskDescription.value,
+          deadline: deadline.value,
+          priority: priority.value,
+        }
+      )
+
       taskName.value = "";
       taskDescription.value = "";
       deadline.value = "";

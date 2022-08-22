@@ -14,26 +14,30 @@
     }); */
 
     import {pManager} from './components/projectManager.js'    
+    import {addProject} from './components/firebaseManager.js'    
+
+
     
-    var form1 = document.getElementById("form1");
-    var inputBox= document.getElementById("searchbox");
-    var projects = document.getElementById("project-container");
-    var tasks = document.getElementById("task-container");
-    var projectButton = document.getElementById("project-button");
-    var cancelButton1 = document.getElementById("cancel-button1");
-    var addButton = document.getElementById("add-button");
-    var finishedButton = document.getElementById("finished-projects-button");
-    var activeButton = document.getElementById("active-button");
+    const form1 = document.getElementById("form1");
+    const inputBox= document.getElementById("searchbox");
+    const projects = document.getElementById("project-container");
+    const tasks = document.getElementById("task-container");
+    const projectButton = document.getElementById("project-button");
+    const cancelButton1 = document.getElementById("cancel-button1");
+    const addButton = document.getElementById("add-button");
+    const finishedButton = document.getElementById("finished-projects-button");
+    const activeButton = document.getElementById("active-button");
 
     
     projectButton.onclick = function(){
-        var input = inputBox.value;
+        const input = inputBox.value;
         inputBox.value = null;
         form1.style.visibility = 'hidden';
         projects.style.visibility = 'visible';
         pManager.addProject(input);
         activeButton.disabled=true;
         activeButton.style.opacity = "0.5";
+        addProject(input)
     };
 
     cancelButton1.onclick = function(){
