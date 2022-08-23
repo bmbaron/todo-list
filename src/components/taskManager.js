@@ -1,5 +1,5 @@
 import {services} from './services.js'
-import {addTask, getAProject} from './firebaseManager.js'    
+import {addTask} from './firebaseManager.js'    
 
 
 const tManager = (() => {
@@ -65,7 +65,10 @@ const tManager = (() => {
           let deadlineCopy = document.createElement('INPUT');
           deadlineCopy.classList.add("deadline");
           deadlineCopy.setAttribute("type", "date");
-          deadlineCopy.value = deadline.value;
+          deadlineCopy.placeholder = "";
+          // deadlineCopy.value = deadline.value;
+          deadlineCopy.value = "";
+
 
           let deadlineAndPriority = document.createElement('div');
           deadlineAndPriority.classList.add("deadline-and-priority");
@@ -116,7 +119,7 @@ const tManager = (() => {
 
       addTask(project.firstChild.textContent,
         {
-          task: taskName.value,
+          name: taskName.value,
           description: taskDescription.value,
           deadline: deadline.value,
           priority: priority.value,

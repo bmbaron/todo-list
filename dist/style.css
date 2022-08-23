@@ -65,7 +65,6 @@ body {
     height: 3rem;
     cursor: pointer;
     background: #064686;
-
 }
 
 @media (max-width: 500px) {
@@ -219,7 +218,7 @@ body {
     width: fit-content;
     font-size: 2.5rem;
     padding: 10px;
-    background:#064A88;
+    background:#f0780f;
     opacity: 0.7;
     color: white;
     margin: auto;
@@ -286,15 +285,6 @@ body {
     }
     .form2 > input:first-of-type {
         margin-top: 1rem;
-    }
-    .form2 > input[type="date"]:not(.has-value):before {
-            content: attr(placeholder);
-            color: grey;
-            margin-top: 0;
-            margin-bottom: 0;
-    }
-    .form2 > input[type="date"]:after{
-        content: none;
     }
     .form2 > input[type="date"]{
         font-size: 1.5rem;
@@ -498,7 +488,7 @@ div[contenteditable=true] > div {
 #cancel-button1 {
     background: #f5e642;
     color: black;
-
+    border: 2px solid black;
 }
 
 #cancel-button {

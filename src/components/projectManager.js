@@ -1,6 +1,6 @@
 import {tManager} from './taskManager.js'
 import {services} from './services.js'
-
+import {deleteProject} from './firebaseManager.js'    
 
 const pManager = (() => {
 
@@ -96,6 +96,7 @@ const pManager = (() => {
             let parent = this.parentNode;
             parent.parentNode.remove();
             projectArray.pop();
+            deleteProject(project);
           }
         };
 
@@ -103,17 +104,8 @@ const pManager = (() => {
     
       };
 
-
-  
-
-    //const chooseQuestion = async () => {
-
-    
     return {
       addProject
-      //toggleAnswered,
-      //questionBoxes,
-
     };
 })();
   
